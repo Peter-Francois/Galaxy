@@ -11,9 +11,9 @@ def keyboard_closed(self):
 def on_touch_down(self, touch):
     if not self.state_game_over and self.state_game_has_started:
         if touch.x < self.width / 2:
-            self.curent_speed_x = self.SPEED_X
+            self.current_speed_x = self.SPEED_X
         else:
-            self.curent_speed_x = -self.SPEED_X
+            self.current_speed_x = -self.SPEED_X
         # Pour pouvoir apuiez sur la touch du menu pour démarer le jeu:
         # cette fonction vien surchargé le comportement normal de lapuit sur une touch(override)
         # si on souhaite transmettre les different appel par rapport au heritage de class, il faut appelé le super
@@ -25,16 +25,16 @@ def on_touch_down(self, touch):
 
 # pour la gestion du dacalage par le touch du clavier
 def on_touch_up(self, touch):
-    self.curent_speed_x = 0
+    self.current_speed_x = 0
 
 
 def on_keyboard_down(self, keyboard, keycode, text, modifiers):
     if keycode[1] == 'left':
-        self.curent_speed_x = self.SPEED_X
+        self.current_speed_x = self.SPEED_X
     elif keycode[1] == 'right':
-        self.curent_speed_x = -self.SPEED_X
+        self.current_speed_x = -self.SPEED_X
     return True
 
 
 def on_keyboard_up(self, keyboard, keycode):
-    self.curent_speed_x = 0
+    self.current_speed_x = 0
