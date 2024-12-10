@@ -30,9 +30,9 @@ def on_touch_up(self, touch):
 
 def on_keyboard_down(self, keyboard, keycode, text, modifiers):
     if keycode[1] == 'left':
-        self.current_speed_x = self.SPEED_X
+        self.current_speed_x = self.speed_x
     elif keycode[1] == 'right':
-        self.current_speed_x = -self.SPEED_X
+        self.current_speed_x = -self.speed_x
     return True
 
 

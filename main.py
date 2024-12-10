@@ -32,11 +32,11 @@ class MainWidget(RelativeLayout):
     H_LINES_SPACING = .15
     horizontal_lines = []
 
-    SPEED = 3
+    speed = 3
     current_offset_y = 0
     current_y_loop = 0
 
-    SPEED_X = 20
+    speed_x = 20
     current_offset_x = 0
     current_speed_x = 0
 
@@ -54,7 +54,10 @@ class MainWidget(RelativeLayout):
     state_game_has_started = False
 
     menu_title = StringProperty("G   A   L   A   X   Y")
-    menu_button_title = StringProperty("START")
+    difficulty_label = StringProperty("DIFFICULTY LEVEL")
+    menu_button_easy = StringProperty("EASY")
+    menu_button_normal = StringProperty("NORMAL")
+    menu_button_hard = StringProperty("HARD")
 
     score_txt = StringProperty('')
 
@@ -74,7 +77,7 @@ class MainWidget(RelativeLayout):
         self.init_tile()
         # Important to call init_ship after init_tile so that the ship is displayed on top of the path
         self.init_ship()
-        self.reset_game()
+        self.reset_game("easy")
 
         # Configure the keyboard only when on a computer, otherwise the smartphone keyboard
         # will appear on the screen
@@ -101,7 +104,13 @@ class MainWidget(RelativeLayout):
 
         self.sound_music1.loop = True
 
-    def reset_game(self):
+    def reset_game(self, level):
+        if level == "easy":
+            self.speed = 4
+        if level == "normal":
+            self.speed = 5
+        if level == "hard":
+            self.speed = 6
         self.current_offset_y = 0
         self.current_y_loop = 0
         self.score_txt = f'SCORE: {self.current_y_loop}'
@@ -313,7 +322,7 @@ class MainWidget(RelativeLayout):
         self.update_tiles()
         self.update_ship()
         if not self.state_game_over and self.state_game_has_started:
-            self.current_offset_y += self.SPEED * time_factor * self.height / 550
+            self.current_offset_y += self.speed * time_factor * self.height / 550
             # current_offset_y is subtracted in the update_horizontal_lines function within the for loop line_y
             spacing_y = self.H_LINES_SPACING * self.height
             # To always have lines to display, when a line passes y = 0, we modify
@@ -340,7 +349,7 @@ class MainWidget(RelativeLayout):
             self.sound_game_over_impact.play()
             Clock.schedule_once(self.play_voice_game_over, 2)
             self.menu_title = "G  A  M  E    O  V  E  R"
-            self.menu_button_title = "RESTART"
+            self.difficulty_label = "RESTART"
             self.menu_widget.opacity = 1
             print("GAME OVER")
 
@@ -349,12 +358,12 @@ class MainWidget(RelativeLayout):
         if self.state_game_over:
             self.sound_game_over_voice.play()
 
-    def on_menu_button_pressed(self):
+    def on_menu_button_pressed(self, level):
         if self.state_game_over:
             self.sound_restart.play()
         else:
             self.sound_begin.play()
-        self.reset_game()
+        self.reset_game(level)
         self.state_game_has_started = True
         self.menu_widget.opacity = 0
         self.sound_music1.play()
