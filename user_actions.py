@@ -7,23 +7,23 @@ def keyboard_closed(self):
     self._keyboard = None
 
 
-# definition des fonction d'appuie sur l'écran a droite ou a gauche
+# Definition of functions for pressing on the screen on the right or left.
 def on_touch_down(self, touch):
     if not self.state_game_over and self.state_game_has_started:
         if touch.x < self.width / 2:
             self.current_speed_x = self.SPEED_X
         else:
             self.current_speed_x = -self.SPEED_X
-        # Pour pouvoir apuiez sur la touch du menu pour démarer le jeu:
-        # cette fonction vien surchargé le comportement normal de lapuit sur une touch(override)
-        # si on souhaite transmettre les different appel par rapport au heritage de class, il faut appelé le super
-        # on devrait metre le super de MainWidget mais on aurrait une importation recursive car user_actions
-        # dépand du main. On peut donc metre la class parent du MainWidget qui est RelativeLayout
+        # To be able to press the menu button to start the game:
+        # This function overrides the normal behavior of pressing a button.
+        # If we want to pass the different calls according to the class inheritance, we need to call the super.
+        # We should call the super of MainWidget, but it would lead to a recursive import because user_actions
+        # depends on Main. So, we can call the parent class of MainWidget, which is RelativeLayout.
     return super(RelativeLayout, self).on_touch_down(touch)
 
 
 
-# pour la gestion du dacalage par le touch du clavier
+# For managing the offset caused by the keyboard touch.
 def on_touch_up(self, touch):
     self.current_speed_x = 0
 

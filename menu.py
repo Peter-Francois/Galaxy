@@ -1,11 +1,11 @@
 from kivy.uix.relativelayout import RelativeLayout
 
 
-# on utilise un RelativeLayout pour qu'il prenne automatiquement la taille du parent au lieux du widget
-# qui prend la taille de 100/ 100 px a l'init, pour fonctionné, le parent doit etre aussi un RelativeLayout
+# We use a RelativeLayout so that it automatically takes the size of the parent instead of the widget,
+# which initially takes a size of 100/100 px. To work, the parent must also be a RelativeLayout.
 class MenuWidget(RelativeLayout):
     def on_touch_down(self, touch):
-        # on desactive le bouton si le menu est caché
+        # We disable the button if the menu is hidden.
         if self.opacity == 0:
 
             return False
