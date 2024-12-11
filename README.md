@@ -6,10 +6,11 @@ Galaxy is a fast-paced game set in the vastness of space. Navigate your ship acr
 
 - Randomized Galaxy Tiles: Every game offers a unique experience with random generated tile patterns.
 - Dynamic Gameplay: The playground moves forward while your ship remains stationary, creating a sense of motion and urgency.
+- Selection of difficulty level: choose between 3 different level from easy to hard.
 - Easy to Play, Hard to Master: Simple controls but challenging gameplay keep you coming back for more.
 - Quick Restarts: Lost? No problem! Restart instantly and jump back into action.
 - Minimalistic Design: A clean, immersive galaxy theme to help you escape into space.
-
+- 
 
 🚀 Getting Started  
 
@@ -19,27 +20,38 @@ Prerequisites
      Download and install Python from [python.org](https://www.python.org/downloads/). Make sure to check the "Add Python to PATH" option during installation.
   2. Install Kivy (2.3.0)
      Install Kivy by running the following command in your terminal or command prompt:  
-     python -m pip install kivy  
+     ```bash
+     python -m pip install kivy
+     ```
      You can check out the official Kivy documentation for more details on installation: [Installing Kivy](https://kivy.org/doc/stable/gettingstarted/installation.html).
   3. Download or Clone the Repository 
      - Clone the project using Git:  
+       ```bash
        git clone https://github.com/Peter-Francois/Galaxy.git
+       ```
      - Or download the project as a ZIP file from [GitHub]https://github.com/Peter-Francois/Galaxy) and extract it.
   4. Navigate to the Project Folder
      Open a terminal and navigate to the project directory:  
-     cd galaxy  
+     ```bash
+     cd galaxy
+     ```
   5. Install Dependencies
      Run the following command to install all required libraries:  
-     python -m pip install -r requirements.txt  
+     ```bash
+     python -m pip install -r requirements.txt
+     ```
   6. Run the Application 
      Finally, run the game by executing the main project file:  
-     python main.py  
+     ```bash
+     python main.py
+     ```
 
 🎮 How to Play
 
+- Start your journey into space by selecting a difficulty level.
 - Stay on the Tiles: Use the controls to ensure your ship remains on the tiles as the playground moves forward.
 - Avoid the Void: Stray off the tiles, and you lose!
-- Restart Anytime: Press the restart button to begin a new game instantly.
+- Restart Anytime by selecting a new difficulty level to begin a new game instantly.
 - Challenge Yourself: See how long you can survive and beat your high score!
 
 🧰 Technologies
@@ -54,11 +66,17 @@ Contributions are welcome! Please follow these steps:
 
   1. Fork the repository.
   2. Create a new branch for your feature:
-     git checkout -b feature-name  
+     ```bash
+     git checkout -b feature-name
+     ```
   3. Commit your changes:
-     git commit -m "Add feature-name"  
+     ```bash
+     git commit -m "Add feature-name"
+     ``` 
   4. Push to your branch:
-     git push origin feature-name  
+     ```bash
+     git push origin feature-name
+     ```  
   5. Submit a pull request.
 
 📄 License
