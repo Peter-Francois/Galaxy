@@ -22,7 +22,7 @@ class MainWidget(RelativeLayout):
     from user_actions import keyboard_closed, on_keyboard_down, on_keyboard_up, on_touch_down, on_touch_up
     menu_widget = ObjectProperty()
     perspective_point_x = NumericProperty(0)
-    perspective_point_y = NumericProperty(0)
+    perspective_point_y = NumericProperty(0)   
 
     V_NB_LINES = 8
     V_LINES_SPACING = .4
@@ -93,7 +93,7 @@ class MainWidget(RelativeLayout):
         self.sound_galaxy = SoundLoader.load('audio/galaxy.wav')
         self.sound_game_over_impact = SoundLoader.load('audio/gameover_impact.wav')
         self.sound_game_over_voice = SoundLoader.load('audio/gameover_voice.wav')
-        self.sound_music1 = SoundLoader.load('audio/music1.wav')
+        self.sound_music1 = SoundLoader.load('audio/music1_reworked.wav')
         self.sound_restart = SoundLoader.load('audio/restart.wav')
         self.sound_music1.volume = 1
         self.sound_begin.volume = .25
@@ -263,6 +263,7 @@ class MainWidget(RelativeLayout):
         return x, y
 
     def update_tiles(self):
+
         for i in range(0, self.NB_TILES):
             # We retrieve the tile and the tile_coordinates
             tile = self.tiles[i]
